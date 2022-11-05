@@ -38,4 +38,4 @@ jobs:
         root: tests/invalid/
         log_level: INFO
         css: true
-      continue-on-error: true
+#       continue-on-error: true
