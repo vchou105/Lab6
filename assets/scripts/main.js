@@ -24,7 +24,7 @@ function getRecipesFromStorage() {
   // A9. TODO - Complete the functionality as described in this function
   //           header. It is possible in only a single line, but should
   //           be no more than a few lines.
-  return JSON.parse(window.localStorage.getItem('recipes'))
+  return JSON.parse(window.localStorage.getItem('recipes')) || []
 }
 
 /**
@@ -90,7 +90,6 @@ function initFormHandler() {
     document.getElementsByTagName('main')[0].append(recipeCard);
     // B9. TODO - Get the recipes array from localStorage, add this new recipe to it, and
     //            then save the recipes array back to localStorage
-    // console.log('save to storage', [getRecipesFromStorage().concat(JSON.parse(JSON.stringify(recipeObject)))])
     saveRecipesToStorage(getRecipesFromStorage().concat(JSON.parse(JSON.stringify(recipeObject))));
   })
   // B10. TODO - Get a reference to the "Clear Local Storage" button
@@ -101,6 +100,6 @@ function initFormHandler() {
     // B12. TODO - Clear the local storage
     localStorage.clear();
     // B13. TODO - Delete the contents of <main>
-    document.getElementsByTagName("main")[0].remove();
+    document.getElementsByTagName("main")[0].innerHTML = "";
   })
 }
